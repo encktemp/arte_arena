@@ -7,81 +7,33 @@ use App\Models\Item;
 
 class ItemController extends Controller
 {
-    /**
-     * Listar todos os itens
-     */
     public function index()
     {
-        return response()->json(Item::all());
+        return Item::all();
     }
 
-    /**
-     * Criar um novo item
-     */
     public function store(Request $request)
     {
-        // Valida os dados recebidos
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
-        ]);
-
-        // Cria o item no banco
-        $item = Item::create($validated);
-
-        return response()->json($item, 201);
+        return Item::create($request->all());
     }
 
-    /**
-     * Exibir um item específico
-     */
     public function show($id)
     {
-        $item = Item::find($id);
-
-        if (!$item) {
-            return response()->json(['error' => 'Item not found'], 404);
-        }
-
-        return response()->json($item);
+        return Item::findOrFail($id);
     }
 
-    /**
-     * Atualizar um item existente
-     */
     public function update(Request $request, $id)
     {
-        $item = Item::find($id);
-
-        if (!$item) {
-            return response()->json(['error' => 'Item not found'], 404);
-        }
-
-        // Valida os dados recebidos
-        $validated = $request->validate([
-            'title' => 'sometimes|required|string|max:255',
-            'body' => 'sometimes|required|string',
-        ]);
-
-        // Atualiza o item
-        $item->update($validated);
-
-        return response()->json($item);
+        $item = Item::findOrFail($id);
+        $item->update($request->all());
+        return $item;
     }
 
-    /**
-     * Remover um item do banco de dados
-     */
     public function destroy($id)
     {
-        $item = Item::find($id);
-
-        if (!$item) {
-            return response()->json(['error' => 'Item not found'], 404);
-        }
-
+        $item = Item::findOrFail($id);
         $item->delete();
-
-        return response()->json(['message' => 'Item deleted successfully']);
+        return response()->noContent();
     }
 }
+

@@ -3,11 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Registra quaisquer serviços da aplicação.
      */
     public function register(): void
     {
@@ -15,10 +16,11 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Inicializa quaisquer serviços da aplicação.
      */
     public function boot(): void
     {
-        //
+        // Define comprimento padrão para colunas do tipo string no banco de dados.
+        Schema::defaultStringLength(191);
     }
 }

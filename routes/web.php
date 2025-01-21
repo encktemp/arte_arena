@@ -3,14 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 
-// Rota principal (opcional)
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); // Ou outro conteúdo que desejar
 });
 
-// Rotas CRUD para o recurso 'items'
-Route::get('/items', [ItemController::class, 'index']); // Listar todos os itens
-Route::post('/items', [ItemController::class, 'store']); // Criar um novo item
-Route::get('/items/{id}', [ItemController::class, 'show']); // Exibir um item específico
-Route::put('/items/{id}', [ItemController::class, 'update']); // Atualizar um item
-Route::delete('/items/{id}', [ItemController::class, 'destroy']); // Remover um item
+
+// Adicione uma rota para verificar o ItemController
+Route::get('/item-test', [ItemController::class, 'index']);
+
+Route::get('/test-items', [ItemController::class, 'index']);
+
+// routes/web.php
+Route::get('/teste', function () {
+    return 'Funcionando!';
+});
