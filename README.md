@@ -156,4 +156,11 @@ Sinta-se à vontade para contribuir com melhorias e novas funcionalidades. Envie
 O projeto é licenciado sob a licença MIT. Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
 ```
 
-Este arquivo README.md contém todas as informações necessárias para o projeto, desde a instalação até o deploy no Kubernetes e a configuração de CI/CD. Você pode incluir este conteúdo no repositório do GitHub.
+## Banco de Dados
+
+O banco de dados exportado está disponível no arquivo `arte_arena.sql` localizado na raiz do projeto.
+
+### Restaurar o Banco de Dados
+Para importar o banco de dados, execute o seguinte comando:
+```bash
+mysql -u [username] -p [database_name] < arte_arena.sql
