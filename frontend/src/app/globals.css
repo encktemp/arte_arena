@@ -1,42 +1,94 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #ededed;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #ededed;
+        --foreground: #ededed;
+    }
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: backdrop-filter 0.3s ease-in-out;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+
+.MuiAutocomplete-listbox {
+    z-index: 1050;
+    position: absolute !important;
+    background-color: #333;
+}
+
+.MuiAutocomplete-option {
+    background-color: #333;
+    color: white;
+}
+
+.MuiAutocomplete-option:hover {
+    background-color: #0040ff;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
+}
+
+.css-1lv3ri6-MuiContainer-root {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+
+@media (min-width: 768px) {
+    .css-1lv3ri6-MuiContainer-root {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+    }
+}
+
+body > div {
+    margin: 1.5px !important;
+}
+
+.css-113d811-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: #fe642e !important;
+}
+
+.css-120dh41-MuiSvgIcon-root {
+    fill: rgb(36 251 0);
 }

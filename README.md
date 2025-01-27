@@ -1,71 +1,159 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!-- =======================================================
+     Tema Nome: Teste Arte Arena
+     Tema URL: https://artearena.com.br
+     Autor: Luiz Möeller / Dev FullStack
+     Autor URL: https://luizmoeller.lcmwebsites.com.br
+======================================================== -->
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Teste Arte Arena
+Projeto desenvolvido para teste de desenvolvedor Full Stack...
 
-## About Laravel
+```markdown
+# Arte Arena
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Arte Arena é um projeto desenvolvido para demonstrar habilidades em lidar com grandes volumes de dados, integração de APIs, desenvolvimento de backend robusto e interfaces frontend performáticas e responsivas. Este projeto utiliza **Redis**, **MySQL**, **Laravel**, **React**, **Next.js** e **Material-UI (MUI)**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## **Descrição do Projeto**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **Arquitetura**
+- **Backend**: Desenvolvido em Laravel 11 com banco de dados MySQL para gerenciar dados da API [JSONPlaceholder](https://jsonplaceholder.typicode.com/guide/). Inclui cache Redis para otimizar requisições.
+- **Frontend**: Criado com React 18, Next.js, e Material-UI, proporcionando uma interface de usuário responsiva e intuitiva.
+- **Sincronização de Dados**: Sincronização diária dos registros da API com o banco de dados por meio de jobs Laravel.
+- **Deploy**: Utiliza Kubernetes para gerenciar a infraestrutura e um pipeline CI/CD para automatizar o build, teste e deploy.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## **Instruções de Instalação e Configuração**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### **Pré-requisitos**
+Certifique-se de ter instalado:
+- Node.js (v16 ou superior)
+- Composer
+- Docker e Docker Compose
+- Kubernetes (kubectl e minikube ou outro cluster)
+- Redis
+- MySQL
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### **Instalação**
 
-## Laravel Sponsors
+#### **Backend**
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/encktemp/arte_arena.git
+   cd arte_arena/backend
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. Instale as dependências:
+   ```bash
+   composer install
+   ```
 
-### Premium Partners
+3. Configure o arquivo `.env`:
+   Copie o arquivo `.env.example`:
+   ```bash
+   cp .env.example .env
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+   Edite as variáveis de ambiente para incluir configurações do MySQL e Redis.
 
-## Contributing
+4. Gere a chave de aplicação:
+   ```bash
+   php artisan key:generate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Execute as migrações:
+   ```bash
+   php artisan migrate
+   ```
 
-## Code of Conduct
+6. Inicie o servidor:
+   ```bash
+   php artisan serve
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### **Frontend**
+1. Navegue até o diretório do frontend:
+   ```bash
+   cd ../frontend
+   ```
 
-## Security Vulnerabilities
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Configure o arquivo `.env.local`:
+   Crie um arquivo `.env.local` com a URL do backend:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:8000/api
+   ```
 
-## License
+4. Inicie o servidor:
+   ```bash
+   npm run dev
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# arte_arena
-Projeto Laravel com MySQL
->>>>>>> befdbfa3e0e928fdd1bfe1ca4c647991bd123506
+5. Acesse o frontend em:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## **Sincronização e Cache**
+
+- Utilize o comando CLI para migrar os dados iniciais da API para o MySQL:
+  ```bash
+  php artisan migrate:api
+  ```
+
+- Um job diário será executado automaticamente para sincronizar novos dados.
+
+
+## **CI/CD e Kubernetes**
+
+### **Pipeline CI/CD**
+O pipeline de CI/CD realiza as seguintes tarefas:
+1. Build do backend e frontend.
+2. Testes automatizados.
+3. Criação e publicação de imagens Docker no Docker Hub.
+4. Deploy automatizado no Kubernetes.
+
+### **Configuração do CI/CD**
+1. Adicione um arquivo `.github/workflows/ci-cd.yml` no repositório.
+2. Configure o Docker Hub para armazenar as imagens criadas.
+
+### **Kubernetes**
+Manifestos para deploy no Kubernetes estão localizados no diretório `k8s/`. Eles incluem:
+- Deployment para backend e frontend.
+- Configuração de serviços e ingressos para expor os aplicativos.
+- Configuração de volumes persistentes.
+
+Para aplicar os manifestos:
+```bash
+kubectl apply -f k8s/
+```
+
+## **Testes Automatizados**
+
+### **Backend**
+- Inclui testes unitários e de integração para endpoints e jobs.
+- Execute os testes com:
+  ```bash
+  php artisan test
+  ```
+
+### **Frontend**
+- Testes foram implementados para o componente Autocomplete.
+- Execute os testes com:
+  ```bash
+  npm run test
+  ```
+
+## **Contribuição**
+Sinta-se à vontade para contribuir com melhorias e novas funcionalidades. Envie seu PR com descrição detalhada.
+
+## **Licença**
+O projeto é licenciado sob a licença MIT. Consulte o arquivo [LICENSE](./LICENSE) para mais detalhes.
+```
+
+Este arquivo README.md contém todas as informações necessárias para o projeto, desde a instalação até o deploy no Kubernetes e a configuração de CI/CD. Você pode incluir este conteúdo no repositório do GitHub.

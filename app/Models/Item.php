@@ -9,5 +9,5 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'body']; // Defina os campos que podem ser preenchidos
+    protected $fillable = ['title', 'body']; 
 }

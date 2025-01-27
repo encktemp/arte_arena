@@ -52,7 +52,7 @@ class MigratePostsCommand extends Command
 
         foreach ($posts as $post) {
             Item::updateOrCreate(
-                ['id' => $post['id']], // Match based on the 'id' field
+                ['id' => $post['id']], 
                 [
                     'title' => $post['title'],
                     'body' => $post['body'],
